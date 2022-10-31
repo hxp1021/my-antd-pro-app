@@ -308,6 +308,18 @@ export default defineConfig({
       ],
     },
     {
+      name: '用户中心',
+      icon: 'user',
+      path: '/user-center',
+      routes: [
+        {
+          name: '用户列表',
+          path: '/user-center/list',
+          component: './UserCenter/List',
+        },
+      ],
+    },
+    {
       path: '/',
       redirect: '/dashboard/analysis',
     },

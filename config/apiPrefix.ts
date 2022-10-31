@@ -1,0 +1,1 @@
+export const API_PREFIX = 'https://my-antd-pro-app-5gszx3vk66dfc578-1304965363.ap-shanghai.app.tcloudbase.com';
