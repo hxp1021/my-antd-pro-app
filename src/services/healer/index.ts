@@ -19,3 +19,19 @@ export async function deleteUser(
     ...(options || {}),
   });
 }
+
+// 新增用户
+export async function saveUser(
+  params: {
+    address: string;
+    name: string;
+    age: number;
+  },
+  options?: { [key: string]: any },
+) {
+  return request<any>(`${API_PREFIX}/healer/saveUser`, {
+    method: 'GET',
+    params: { ...params },
+    ...(options || {}),
+  });
+}
