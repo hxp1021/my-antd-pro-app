@@ -317,6 +317,11 @@ export default defineConfig({
           path: '/user-center/list',
           component: './UserCenter/List',
         },
+        {
+          // name: '新建用户',
+          path: '/user-center/create',
+          component: './UserCenter/Create',
+        },
       ],
     },
     {

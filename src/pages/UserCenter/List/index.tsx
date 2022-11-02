@@ -1,6 +1,7 @@
 import React from 'react'
+import { history } from 'umi'
 import { ProTable, ActionType } from '@ant-design/pro-table'
-import { message, Popconfirm } from 'antd'
+import { message, Popconfirm,Button } from 'antd'
 import { queryUserList, deleteUser } from '@/services/healer'
 
 export default () => {
@@ -23,6 +24,11 @@ export default () => {
       actionRef={ref}
       rowKey='_id'
       request={request}
+      toolBarRender={() => [
+        <Button key="button" type="primary" onClick={() => history.push('./create')}>
+          新建
+        </Button>,
+      ]}
       columns={[
         {
           title: '姓名',
