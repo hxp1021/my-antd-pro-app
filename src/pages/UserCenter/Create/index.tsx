@@ -1,17 +1,35 @@
 import React from 'react'
-import {history} from 'umi'
+import { history, useLocation, useRequest } from 'umi'
 import { PageContainer } from '@ant-design/pro-layout';
 import { Form, Input, InputNumber, Button, message } from 'antd'
-import { saveUser } from '@/services/healer'
+import { saveUser, updateUser, queryUserDetail } from '@/services/healer';
 
 export default () => {
   const [form] = Form.useForm()
+  const { query = {} } = useLocation() as any
+  const { id } = query
+
+  useRequest(() => queryUserDetail({ id }),
+    {
+      ready: !!id,
+      onSuccess: (res) => {
+        form.setFieldsValue({ ...res })
+      }
+    })
+
   const submit = async () => {
     const values = await form.validateFields()
-    await saveUser({...values})
-    message.success('创建成功')
+    if (!id) {
+      await saveUser(values)
+      message.success('创建成功')
+    } else {
+      await updateUser({ ...values, id })
+      message.success('更新成功')
+    }
+
     history.replace('./list')
   }
+
   return (
     <div
       style={{
@@ -22,7 +40,7 @@ export default () => {
         title='新建用户'
       >
         <Form
-        form={form}
+          form={form}
           labelCol={{ span: 4 }}
           wrapperCol={{ span: 8 }}
         >
