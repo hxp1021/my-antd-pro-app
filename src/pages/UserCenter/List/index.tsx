@@ -1,7 +1,7 @@
 import React from 'react'
 import { history } from 'umi'
 import { ProTable, ActionType } from '@ant-design/pro-table'
-import { message, Popconfirm,Button } from 'antd'
+import { message, Popconfirm, Button, Space } from 'antd'
 import { queryUserList, deleteUser } from '@/services/healer'
 
 export default () => {
@@ -46,9 +46,12 @@ export default () => {
           title: '操作',
           search: false,
           render: (_, record) =>
-            <Popconfirm onConfirm={() => handleDelete(record._id)} title='确定要删除吗？'>
-              <a>删除</a>
-            </Popconfirm>
+            <Space>
+              <a onClick={() => history.push(`./create?id=${record._id}`)} >编辑</a>
+              <Popconfirm onConfirm={() => handleDelete(record._id)} title='确定要删除吗？'>
+                <a>删除</a>
+              </Popconfirm>
+            </Space>
         }
       ]}
     />

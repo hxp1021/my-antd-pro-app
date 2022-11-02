@@ -35,3 +35,34 @@ export async function saveUser(
     ...(options || {}),
   });
 }
+
+// 查询用户详情
+export async function queryUserDetail(
+  params: {
+    id:string
+  },
+  options?: { [key: string]: any },
+) {
+  return request<any>(`${API_PREFIX}/healer/queryUserDetail`, {
+    method: 'GET',
+    params: { ...params },
+    ...(options || {}),
+  });
+}
+
+// 更新用户信息
+export async function updateUser(
+  params: {
+    id:string
+    address: string;
+    name: string;
+    age: number;
+  },
+  options?: { [key: string]: any },
+) {
+  return request<any>(`${API_PREFIX}/healer/updateUser`, {
+    method: 'GET',
+    params: { ...params },
+    ...(options || {}),
+  });
+}
