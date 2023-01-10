@@ -66,3 +66,8 @@ export async function updateUser(
     ...(options || {}),
   });
 }
+
+// 查询欠债金额操作记录
+export async function queryMoneyEditList() {
+  return request<any>(`${API_PREFIX}/healer/queryMoneyEditList`);
+}
