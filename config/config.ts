@@ -322,6 +322,11 @@ export default defineConfig({
           path: '/user-center/create',
           component: './UserCenter/Create',
         },
+        {
+          name: '操作记录',
+          path: '/user-center/edit-list',
+          component: './UserCenter/EditList',
+        },
       ],
     },
     {

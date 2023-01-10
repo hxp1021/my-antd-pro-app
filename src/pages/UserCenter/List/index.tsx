@@ -47,6 +47,10 @@ export default () => {
           dataIndex: 'address'
         },
         {
+          title: '创建/更新理由',
+          dataIndex: 'reason'
+        },
+        {
           title: '操作',
           search: false,
           render: (_, record) =>

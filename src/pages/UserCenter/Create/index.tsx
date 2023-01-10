@@ -9,7 +9,7 @@ export default () => {
   const { query = {} } = useLocation() as any
   const { id } = query
 
-  useRequest(() => queryUserDetail({ id }),
+  const {data: oldFormValue} = useRequest(() => queryUserDetail({ id }),
     {
       ready: !!id,
       onSuccess: (res) => {
@@ -23,7 +23,7 @@ export default () => {
       await saveUser(values)
       message.success('创建成功')
     } else {
-      await updateUser({ ...values, id })
+      await updateUser({ ...values, id, oldName:oldFormValue?.name, oldMoney:oldFormValue?.money })
       message.success('更新成功')
     }
 
@@ -55,6 +55,9 @@ export default () => {
           </Form.Item>
           <Form.Item name='money' rules={[{ required: true }]} label='负债金额'>
             <InputNumber />
+          </Form.Item>
+          <Form.Item name='reason' rules={[{ required: true }]} label='创建/更新理由'>
+            <Input.TextArea />
           </Form.Item>
           <Form.Item wrapperCol={{ offset: 4, span: 8 }}>
             <Button onClick={submit} type='primary' >提交</Button>
