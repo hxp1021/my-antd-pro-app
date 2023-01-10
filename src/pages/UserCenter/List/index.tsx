@@ -39,6 +39,10 @@ export default () => {
           dataIndex: 'age'
         },
         {
+          title: '负债金额',
+          dataIndex: 'money',
+        },
+        {
           title: '地址',
           dataIndex: 'address'
         },

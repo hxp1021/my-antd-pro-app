@@ -53,6 +53,9 @@ export default () => {
           <Form.Item name='age' rules={[{ required: true }]} label='年龄'>
             <InputNumber />
           </Form.Item>
+          <Form.Item name='money' rules={[{ required: true }]} label='负债金额'>
+            <InputNumber />
+          </Form.Item>
           <Form.Item wrapperCol={{ offset: 4, span: 8 }}>
             <Button onClick={submit} type='primary' >提交</Button>
           </Form.Item>
