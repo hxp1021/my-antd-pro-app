@@ -330,6 +330,23 @@ export default defineConfig({
       ],
     },
     {
+      name: '台球中心',
+      icon: 'user',
+      path: '/billiard',
+      routes: [
+        {
+          name: '台球约战列表',
+          path: '/billiard/list',
+          component: './Billiard/List',
+        },
+        {
+          // name: '新建用户',
+          path: '/billiard/create',
+          component: './Billiard/Create',
+        },
+      ],
+    },
+    {
       path: '/',
       redirect: '/dashboard/analysis',
     },
