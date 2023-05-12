@@ -9,9 +9,13 @@ export default () => {
   const ref = useRef<ActionType>();
   const { data: addressData } = useRequest(() => queryBilliardAddress())
   const del = (record: any) => {
-    deleteBilliard({ _id: record._id }).then(() => message.success('删除成功'))
-    ref.current?.reload()
+    deleteBilliard({ _id: record._id })
+      .then(() => {
+        message.success('删除成功');
+        ref.current?.reload();
+      })
   }
+
 
   return (
     <ProTable
