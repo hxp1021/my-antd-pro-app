@@ -19,7 +19,7 @@ export default () => {
 
   return (
     <ProTable
-      toolBarRender={() => [<Button type='primary' onClick={() => history.push('./create')}>新建</Button>]}
+      toolBarRender={() => [<Button type='primary' onClick={() => history.push('/billiard/create')}>新建</Button>]}
       actionRef={ref}
       request={queryBilliardList}
       columns={
@@ -55,7 +55,7 @@ export default () => {
             search: false,
             render: (_, record) => (
               <Space>
-                <a onClick={() => history.push('./create?_id=' + record?._id)}>编辑</a>
+                <a onClick={() => history.push('/billiard/create?_id=' + record?._id)}>编辑</a>
                 <a onClick={() => Modal.confirm({
                   title: '确定删除吗',
                   onOk: () => del(record)

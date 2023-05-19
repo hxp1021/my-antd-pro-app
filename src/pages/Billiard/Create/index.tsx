@@ -52,7 +52,7 @@ export default function index() {
       message.success('提交成功')
     }
 
-    history.push('./list')
+    history.push('/billiard/list')
   }
 
   return (

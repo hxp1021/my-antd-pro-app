@@ -25,7 +25,7 @@ export default () => {
       rowKey='_id'
       request={request}
       toolBarRender={() => [
-        <Button key="button" type="primary" onClick={() => history.push('./create')}>
+        <Button key="button" type="primary" onClick={() => history.push('/user-center/create')}>
           新建
         </Button>,
       ]}
@@ -55,7 +55,7 @@ export default () => {
           search: false,
           render: (_, record) =>
             <Space>
-              <a onClick={() => history.push(`./create?id=${record._id}`)} >编辑</a>
+              <a onClick={() => history.push(`/user-center/create?id=${record._id}`)} >编辑</a>
               <Popconfirm onConfirm={() => handleDelete(record._id)} title='确定要删除吗？'>
                 <a>删除</a>
               </Popconfirm>

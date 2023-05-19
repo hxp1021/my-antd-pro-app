@@ -27,7 +27,7 @@ export default () => {
       message.success('更新成功')
     }
 
-    history.replace('./list')
+    history.replace('/user-center/list')
   }
 
   return (
